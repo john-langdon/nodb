@@ -35,8 +35,8 @@ class Item extends React.Component {
         // console.log(this.props)
         return (
             <div className= "list" key={this.props.key}>
-                <p>{this.props.item.nameOfItem}</p>
-                <p>{this.props.item.brandOfItem}</p>
+                <h3>{this.props.item.nameOfItem}</h3>
+                <h3>{this.props.item.brandOfItem}</h3>
                 <p>{this.props.item.QTY}</p>
                 <input type='number' placeholder="new QTY" onChange={(e) => this.setState({ QTY: e.target.value })}/>
                 <button onClick={this.handleEdit}>Edit QTY</button>

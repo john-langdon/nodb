@@ -42,4 +42,6 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  color: #6699ff;
+  align-content: center;
 }
