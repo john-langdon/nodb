@@ -23,16 +23,19 @@ module.exports = {
     editQTY: ( req, res) => {
         // body that gives us the item id and the new qty amount
         // afterwards return my items array
-        
+        const targetIndex = myItems.findIndex(item => item.id === +req.params.id);
+
+        myItems[targetIndex].QTY = req.body.QTY;
+
+        res.status(200).json(myItems);
     },
 
 
     deleteItems: ( req, res ) => {
-        // params
-        // const targetIndex = myItems.findIndex(item => item.id === )
+        const targetIndex = myItems.findIndex(item => item.id === +req.params.id);
 
-        // myItems.splice(targetIndex, 1);
+        myItems.splice(targetIndex, 1);
 
-        // res.status(200).json(myItems);
+        res.status(200).json(myItems);
     }
 }

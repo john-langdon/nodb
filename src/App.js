@@ -32,7 +32,7 @@ retrieveItems(itemsRes) {
       <div className="App">
         <Header />
         <AddItem retrieveItems={this.retrieveItems} />
-        <List items={this.state.items} />
+        <List items={this.state.items} retrieveItems={this.retrieveItems} />
         <Footer />
       </div>
     );
