@@ -1,13 +1,6 @@
-let id = 2;
+let id = 1;
 
-const myItems = [
-    {
-        id: 1,
-        nameOfItem: "pickles",
-        brandOfItem: "Vlasic",
-        QTY: 3
-    }
-];
+const myItems = [];
 
 
 module.exports = { 
@@ -21,6 +14,10 @@ module.exports = {
             id,
             ...req.body
         }
+        id++
+        myItems.push(newItem);
+        res.status(200).json(myItems);
+
     },
     
     editQTY: ( req, res) => {

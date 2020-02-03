@@ -5,11 +5,11 @@ class AddItem extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      brand: "",
-      qty: 0
+      nameOfItem: "",
+      brandOfItem: "",
+      QTY: 0
     };
-    // this.retrieveItems = this.retrieveItems.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(evt) {
@@ -17,24 +17,31 @@ class AddItem extends React.Component {
       [evt.target.name]: evt.target.value
     });
   }
-  handleClick;
+  handleClick() {
+      axios
+      .post('/api/items', this.state)
+      .then(res => this.props.retrieveItems(res.data))
+      .catch(error => console.log(error));
+  }
+
 
   render() {
     console.log(this.state);
     return (
       <section>
         <input
-          name="name"
+          name="nameOfItem"
           placeholder="enter name of item"
           onChange={this.handleChange}
         />
         <input
-          name="brand"
+          name="brandOfItem"
           placeholder="enter brand of item"
           onChange={this.handleChange}
         />
-        <input name="qty" placeholder="qty" onChange={this.handleChange} />
-        <button onClick={this.handleClick}>Add Item</button>
+        <input name="QTY" placeholder="qty" onChange={this.handleChange} />
+        <button
+         onClick={this.handleClick}>Add Item</button>
       </section>
     );
   }

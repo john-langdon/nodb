@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './AddItem';
+import Item from './Item';
 import axios from 'axios';
 
 class List extends React.Component {
@@ -8,7 +8,7 @@ class List extends React.Component {
 render () {
     const itemsMapped = this.props.items.map((item, index) => {
         return (
-            <Items
+            <Item
                 item={item} key={index}
                 retrieveItems={this.props.retrieveItems}
             />
